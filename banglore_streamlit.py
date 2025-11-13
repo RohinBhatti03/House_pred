@@ -14,10 +14,8 @@ bath = st.number_input("Enter Number of Bathrooms", min_value=1, max_value=10, s
 bhk = st.number_input("Enter Number of Bedrooms (BHK)", min_value=1, max_value=10, step=1)
 
 if st.button("Predict Price"):
-# Create a single-row DataFrame with the exact column names
     input_data_df = pd.DataFrame([[location, total_sqft, bath, bhk]], 
                              columns=['location', 'total_sqft', 'bath', 'bhk'])
-
-# Pass the DataFrame to the predict method
     prediction = pipe.predict(input_data_df)[0]
     st.success(f"Estimated Price: ₹ {round(prediction, 2)} Lakhs")
+
